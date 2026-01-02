@@ -648,6 +648,18 @@ button {
     font-weight: 500;
 }
 
+.trust-logo-link img {
+    height: 30px;
+    opacity: 0.6;
+    filter: grayscale(100%);
+    transition: all var(--transition-base);
+}
+
+.trust-logo-link:hover img {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
 /* ===== Section Styles ===== */
 .section-badge {
     display: inline-block;
@@ -1331,12 +1343,13 @@ button {
 /* ===== Responsive Adjustments ===== */
 @media (max-width: 1023px) {
     .nav-links {
-        display: flex;
+        display: flex !important; /* Force override display: none */
         flex-direction: column;
         position: fixed;
         top: 80px;
         left: 0;
         right: 0;
+        bottom: 0; /* Cover full screen */
         background: var(--color-white);
         padding: 2rem;
         border-bottom: 1px solid var(--color-gray-200);
@@ -1346,6 +1359,7 @@ button {
         transition: all var(--transition-base);
         z-index: 999;
         gap: 1.5rem;
+        overflow-y: auto;
     }
 
     .nav-links.active {
@@ -1355,10 +1369,21 @@ button {
     }
 
     .nav-links a {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
+        font-weight: 600;
         color: var(--color-gray-900);
         width: 100%;
         text-align: center;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--color-gray-100);
+    }
+    
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+    
+    .mobile-toggle span {
+        transition: all var(--transition-base);
     }
     
     .mobile-toggle.active span:nth-child(1) {
