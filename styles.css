@@ -325,6 +325,7 @@ button {
 /* ===== Hero Section ===== */
 .hero {
   position: relative;
+  isolation: isolate; /* Fix z-index -1 visibility */
   min-height: 100vh;
   display: flex;
   align-items: center;
