@@ -909,6 +909,33 @@ button {
 
 .product-card.featured {
   border: 2px solid var(--color-primary);
+  grid-column: 1 / -1; /* Span full width */
+}
+
+@media (min-width: 768px) {
+  .product-card.featured {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+
+  .product-card.featured .product-image {
+    height: 100%;
+    min-height: 400px;
+    border-right: 1px solid var(--color-gray-200);
+  }
+
+  .product-card.featured .product-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem;
+  }
+
+  .product-card.featured .product-badge {
+    left: 1rem;
+    right: auto;
+  }
 }
 
 .product-badge {
