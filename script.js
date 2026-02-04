@@ -268,34 +268,42 @@ document.addEventListener("DOMContentLoaded", () => {
 // Google Maps Places Autocomplete
 function initAutocomplete() {
   const cityInput = document.getElementById("city");
-  const countryInput = document.getElementById("country");
+  const countrySelect = document.getElementById("country");
 
   if (!cityInput) return;
 
-  // Options for Autocomplete (restricted to cities and regions for cleaner UI)
   const options = {
     types: ["(cities)"],
   };
 
   const autocomplete = new google.maps.places.Autocomplete(cityInput, options);
 
-  // When the user selects an address from the dropdown
   autocomplete.addListener("place_changed", function () {
     const place = autocomplete.getPlace();
-
     if (!place.address_components) return;
 
-    // Extract country from address components
-    let country = "";
+    let countryName = "";
     for (const component of place.address_components) {
       if (component.types.includes("country")) {
-        country = component.long_name;
+        countryName = component.long_name;
         break;
       }
     }
 
-    if (country && countryInput) {
-      countryInput.value = country;
+    if (countryName && countrySelect) {
+      // Find the option that matches the country name
+      let found = false;
+      for (let i = 0; i < countrySelect.options.length; i++) {
+        if (countrySelect.options[i].value === countryName) {
+          countrySelect.selectedIndex = i;
+          found = true;
+          break;
+        }
+      }
+      // Fallback: If not found in the list, set to 'Other' or keep as is
+      if (!found) {
+        countrySelect.value = "Other";
+      }
     }
   });
 }
