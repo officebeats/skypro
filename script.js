@@ -283,3 +283,55 @@ function initAutocomplete() {
     }
   });
 }
+
+// Lightbox Modal Logic
+document.addEventListener("DOMContentLoaded", () => {
+  const lightboxModal = document.getElementById("lightboxModal");
+  const lightboxImage = document.getElementById("lightboxImage");
+  const lightboxLocation = document.getElementById("lightboxLocation");
+  const lightboxTitle = document.getElementById("lightboxTitle");
+  const closeLightbox = document.getElementById("closeLightbox");
+  const lightboxOverlay = document.querySelector(".lightbox-overlay");
+  const galleryItems = document.querySelectorAll(".gallery-item");
+
+  if (lightboxModal && galleryItems.length > 0) {
+    const openLightbox = (item) => {
+      const img = item.querySelector("img");
+      const locationText =
+        item.querySelector(".gallery-location")?.textContent || "";
+      const titleText = item.querySelector(".gallery-title")?.textContent || "";
+
+      lightboxImage.src = img.src;
+      lightboxLocation.textContent = locationText;
+      lightboxTitle.textContent = titleText;
+
+      lightboxModal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    };
+
+    const closeLightboxModal = () => {
+      lightboxModal.classList.remove("active");
+      document.body.style.overflow = "";
+      // Optional: Clear src after transition to avoid flicker on next open
+      setTimeout(() => {
+        if (!lightboxModal.classList.contains("active")) {
+          lightboxImage.src = "";
+        }
+      }, 400);
+    };
+
+    galleryItems.forEach((item) => {
+      item.addEventListener("click", () => openLightbox(item));
+    });
+
+    closeLightbox.addEventListener("click", closeLightboxModal);
+    lightboxOverlay.addEventListener("click", closeLightboxModal);
+
+    // Close on ESC
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lightboxModal.classList.contains("active")) {
+        closeLightboxModal();
+      }
+    });
+  }
+});

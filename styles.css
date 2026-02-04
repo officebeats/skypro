@@ -1025,6 +1025,7 @@ h3 {
   border-radius: var(--radius-lg);
   overflow: hidden;
   aspect-ratio: 1;
+  cursor: pointer; /* Signal interactiveness */
 }
 
 .gallery-item.large {
@@ -1516,5 +1517,109 @@ h3 {
     top: -3rem;
     right: 0;
     transform: scale(0.8);
+  }
+}
+
+/* ===== Lightbox Modal ===== */
+.lightbox-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 3000; /* Higher than sticky nav and video modal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.lightbox-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.98);
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+}
+
+.lightbox-content {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: scale(0.95);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 10;
+}
+
+.lightbox-modal.active .lightbox-content {
+  transform: scale(1);
+}
+
+#lightboxImage {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lightbox-caption {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.lightbox-caption .gallery-location {
+  display: block;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+}
+
+.lightbox-caption .gallery-title {
+  font-size: 1.5rem;
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -4rem;
+  right: 0;
+  color: var(--color-white);
+  font-size: 2.5rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: transform 0.3s var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+}
+
+.lightbox-close:hover {
+  transform: rotate(90deg) scale(1.1);
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .lightbox-content {
+    width: 95%;
+  }
+  .lightbox-close {
+    top: -3.5rem;
+    right: 0;
+  }
+  .lightbox-caption .gallery-title {
+    font-size: 1.125rem;
   }
 }

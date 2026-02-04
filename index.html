@@ -490,13 +490,7 @@
             </div>
           </div>
         </div>
-        <div class="gallery-cta">
-          <a
-            href="https://www.skypro.com/gallery"
-            class="btn btn-outline btn-lg"
-            >View Full Gallery</a
-          >
-        </div>
+        <!-- REMOVED: External Gallery CTA -->
       </div>
     </section>
 
@@ -915,6 +909,23 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
             allowfullscreen
           ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal">
+      <div class="lightbox-overlay"></div>
+      <div class="lightbox-content">
+        <button class="lightbox-close" id="closeLightbox" title="Close Gallery">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </button>
+        <img id="lightboxImage" src="" alt="Gallery Image Expanded" />
+        <div class="lightbox-caption">
+          <span id="lightboxLocation" class="gallery-location"></span>
+          <span id="lightboxTitle" class="gallery-title"></span>
         </div>
       </div>
     </div>
