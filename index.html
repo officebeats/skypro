@@ -804,8 +804,7 @@
                   <label for="country">Country</label>
                   <div class="input-with-icon">
                     <select name="country" id="country" required>
-                      <option value="" disabled selected>Select Country</option>
-                      <option value="United States">United States</option>
+                      <option value="United States" selected>United States</option>
                       <option value="Canada">Canada</option>
                       <option value="United Kingdom">United Kingdom</option>
                       <option value="United Arab Emirates">United Arab Emirates</option>
@@ -955,9 +954,7 @@
     <!-- Hidden Iframe for Robust Form Submission -->
     <iframe name="hidden_iframe" id="hidden_iframe" title="Hidden Utility Frame"></iframe>
 
-    <!-- Google Maps API for Autocomplete -->
-    <!-- Note: Replace YOUR_API_KEY with an actual Google Maps API Key to enable Places Autocomplete -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initAutocomplete" async defer></script>
+    <!-- Note: Google Maps Autocomplete disabled to prevent API key conflicts. Fallback datalist is active. -->
     <script src="script.js?v=2"></script>
   </body>
 </html>
