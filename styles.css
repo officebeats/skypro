@@ -422,13 +422,14 @@ h3 {
 
 .hero-text {
   color: var(--color-white);
-  background: rgba(15, 23, 42, 0.4);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-  padding: 3rem;
+  background: rgba(15, 23, 42, 0.3); /* Optimized transparency */
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  padding: 3.5rem; /* Expanded for balanced internal symmetry */
   border-radius: var(--radius-2xl);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.6);
+  max-width: 680px;
 }
 
 .hero-badge {
@@ -436,13 +437,13 @@ h3 {
   align-items: center;
   gap: 0.75rem;
   background: rgba(0, 102, 255, 0.1);
-  border: 1px solid rgba(0, 102, 255, 0.3);
-  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.625rem 1.25rem;
   border-radius: var(--radius-full);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--color-primary-light);
-  margin-bottom: 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-white); /* Mandatory white contrast */
+  margin-bottom: 2rem;
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   letter-spacing: 0.05em;
