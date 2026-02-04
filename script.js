@@ -130,16 +130,14 @@ document.addEventListener("DOMContentLoaded", () => {
       submitBtn.textContent = "Engineering your quote...";
 
       try {
-        const emailAddress = "ernesto+skypro@getroute.com";
         const response = await fetch(
-          `https://formsubmit.co/ajax/${encodeURIComponent(emailAddress)}`,
+          "https://formsubmit.co/ajax/ernesto+skypro@getroute.com",
           {
             method: "POST",
             headers: {
-              "Content-Type": "application/json",
               Accept: "application/json",
             },
-            body: JSON.stringify(data),
+            body: formData,
           },
         );
 
@@ -149,31 +147,22 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="form-success animate-fadeIn" style="text-align: center; padding: 2rem 0;">
                         <div style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
                         <h3 style="color: white; margin-bottom: 1rem;">Inquiry Received!</h3>
-                        <p style="color: rgba(255,255,255,0.8);">Thank you, ${data.first_name}. Your project details have been transmitted. <strong>Important:</strong> Check your inbox at ${data.email} for results.</p>
+                        <p style="color: rgba(255,255,255,0.8);">Thank you, ${data.first_name}. Your project details have been transmitted. <strong>Important:</strong> Check your email to confirm the submission if this is your first time.</p>
                         <button onclick="location.reload()" class="btn btn-white" style="margin-top: 2rem; color: var(--color-primary);">Send Another</button>
                     </div>
                 `;
         } else {
           const result = await response.json();
-          console.error("FormSubmit Error:", result);
-          submitBtn.textContent = "Server Error. Try again.";
+          alert(`Server Error: ${result.message || "Unknown Error"}`);
+          submitBtn.textContent = "Error. Try again.";
           submitBtn.disabled = false;
         }
       } catch (error) {
-        console.error("Detailed Network Error:", error);
-
-        if (window.location.protocol === "file:") {
-          alert(
-            "SECURITY BLOCK: You are opening this as a local file (file://). Browsers block form submissions this way. Please test on the live GitHub URL.",
-          );
-          submitBtn.textContent = "Protocol Error";
-        } else {
-          // Check for common blockers (Adblock/VPN/CORS)
-          alert(
-            `SUBMISSION FAILED.\nMessage: ${error.message}\n\nThis is usually caused by an Adblocker or VPN blocking the submission service. Try disabling them or using Incognito.`,
-          );
-          submitBtn.textContent = "Error: Check Console";
-        }
+        console.error("Diagnostic Log:", error);
+        alert(
+          `NETWORK ERROR DIAGNOSTIC:\nType: ${error.name}\nMessage: ${error.message}\n\nThis is usually caused by an Adblocker or VPN blocking the submission service.`,
+        );
+        submitBtn.textContent = "Error. Check Alert.";
         submitBtn.disabled = false;
       }
     });
