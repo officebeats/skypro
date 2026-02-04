@@ -422,7 +422,12 @@ h3 {
 
 .hero-text {
   color: var(--color-white);
-  background: rgba(15, 23, 42, 0.3); /* Optimized transparency */
+  background: rgba(
+    15,
+    23,
+    42,
+    0.45
+  ); /* Increased opacity for elite readability */
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   padding: 3.5rem; /* Expanded for balanced internal symmetry */
