@@ -796,26 +796,53 @@ h3 {
 }
 
 .solution-icon-new {
-  width: 72px;
-  height: 72px;
+  width: 115px; /* 60% larger than 72px */
+  height: 115px;
   background: linear-gradient(
     135deg,
     var(--color-primary-light) 0%,
     var(--color-primary) 100%
   );
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--color-white);
-  margin-bottom: 2rem;
-  box-shadow: 0 12px 30px -10px rgba(0, 102, 255, 0.6);
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 0 auto 2.5rem; /* Centered with healthy bottom margin */
+  box-shadow: 0 20px 40px -10px rgba(0, 102, 255, 0.7);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .solution-card:hover .solution-icon-new {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.1) rotate(8deg);
+}
+
+.centered-title {
+  text-align: center;
+  width: 100%;
+}
+
+/* ===== Animation Showcase - Edge to Edge ===== */
+.animation-showcase {
+  width: 100%;
+  background: var(--color-dark);
+  overflow: hidden;
+  padding: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.animation-wrapper {
+  width: 100%;
+  line-height: 0; /* Remove gap below image */
+}
+
+.full-width-gif {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: contrast(1.1) brightness(1.1); /* Pop the industrial whites */
 }
 
 /* ===== Products - Modern Cards ===== */
