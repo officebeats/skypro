@@ -944,13 +944,14 @@ h3 {
 
 .solution-list li {
   display: flex;
-  align-items: center;
-  justify-content: center; /* Center for the impact layout */
+  align-items: flex-start; /* Better for multi-line bullets */
+  justify-content: flex-start;
   gap: 1rem;
   margin-bottom: 1.25rem;
   color: var(--color-white);
   font-size: 1.125rem;
   font-weight: 500;
+  text-align: left;
 }
 
 .solution-list svg {
