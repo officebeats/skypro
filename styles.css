@@ -838,11 +838,11 @@ h3 {
   line-height: 0; /* Remove gap below image */
 }
 
-.full-width-gif {
+.full-width-video {
   width: 100%;
   height: auto;
   display: block;
-  filter: contrast(1.1) brightness(1.1); /* Pop the industrial whites */
+  filter: contrast(1.05) brightness(1.05); /* Precision clarity */
 }
 
 /* ===== Products - Modern Cards ===== */
