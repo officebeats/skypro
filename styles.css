@@ -10,11 +10,11 @@
 
   --color-dark: #0f172a;
   --color-gray-900: #0f172a;
-  --color-gray-800: #1e293b;
-  --color-gray-700: #334155;
-  --color-gray-600: #475569;
-  --color-gray-500: #64748b;
-  --color-gray-400: #94a3b8;
+  --color-gray-800: #111827;
+  --color-gray-700: #1f2937;
+  --color-gray-600: #374151;
+  --color-gray-500: #4b5563;
+  --color-gray-400: #6b7280;
   --color-gray-100: #f1f5f9;
   --color-white: #ffffff;
 
@@ -52,7 +52,7 @@ html {
 
 body {
   font-family: var(--font-family);
-  color: var(--color-gray-700);
+  color: var(--color-gray-800); /* High contrast body text */
   background: var(--color-white);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -426,7 +426,12 @@ h3 {
 
 .hero-text {
   color: var(--color-white);
-  background: rgba(15, 23, 42, 0.45);
+  background: rgba(
+    15,
+    23,
+    42,
+    0.225
+  ); /* 50% more transparent than previous 0.45 */
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   padding: 3.5rem;
@@ -626,7 +631,7 @@ h3 {
   text-align: center;
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--color-gray-600); /* Darkened for readability */
+  color: var(--color-gray-800); /* Maximized contrast */
   margin-bottom: 2.5rem;
   text-transform: uppercase;
   letter-spacing: 0.25em; /* Professional tracking */
@@ -1059,7 +1064,7 @@ h3 {
   max-height: 0;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  color: var(--color-gray-700);
+  color: var(--color-gray-800); /* Darker text for legibility */
   font-size: 1.0625rem; /* Increased for legibility */
   line-height: 1.7;
 }
