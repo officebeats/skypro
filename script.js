@@ -211,5 +211,40 @@ document.addEventListener("DOMContentLoaded", () => {
     statObserver.observe(stat);
   });
 
+  // Video Modal Logic
+  const videoModal = document.getElementById("videoModal");
+  const watchDemoBtn = document.getElementById("watchDemoBtn");
+  const closeVideoModal = document.getElementById("closeVideoModal");
+  const youtubePlayer = document.getElementById("youtubePlayer");
+  const modalOverlay = document.querySelector(".video-modal-overlay");
+
+  if (videoModal && watchDemoBtn) {
+    const videoUrl =
+      "https://www.youtube.com/embed/Yw0pi95MkgY?start=80&autoplay=1";
+
+    const openModal = () => {
+      youtubePlayer.src = videoUrl;
+      videoModal.classList.add("active");
+      document.body.style.overflow = "hidden"; // Prevent background scroll
+    };
+
+    const closeModal = () => {
+      videoModal.classList.remove("active");
+      youtubePlayer.src = ""; // Stop the video
+      document.body.style.overflow = "";
+    };
+
+    watchDemoBtn.addEventListener("click", openModal);
+    closeVideoModal.addEventListener("click", closeModal);
+    modalOverlay.addEventListener("click", closeModal);
+
+    // Close on ESC key
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && videoModal.classList.contains("active")) {
+        closeModal();
+      }
+    });
+  }
+
   console.log("Sky Pro Redesign initialized successfully!");
 });

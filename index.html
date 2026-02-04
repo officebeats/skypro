@@ -91,7 +91,7 @@
                 />
               </svg>
             </a>
-            <a href="#demo" class="btn btn-ghost btn-lg">
+            <a href="javascript:void(0)" class="btn btn-ghost btn-lg" id="watchDemoBtn">
               <svg
                 width="24"
                 height="24"
@@ -854,6 +854,28 @@
           </div>
         </div>
     </footer>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal">
+      <div class="video-modal-overlay"></div>
+      <div class="video-modal-content">
+        <button class="video-modal-close" id="closeVideoModal" title="Close Video">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </button>
+        <div class="video-aspect-ratio">
+          <iframe 
+            id="youtubePlayer"
+            src="" 
+            title="Sky Pro Demo Video" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
 
     <!-- Hidden Iframe for Robust Form Submission -->
     <iframe name="hidden_iframe" id="hidden_iframe" title="Hidden Utility Frame"></iframe>
