@@ -130,8 +130,9 @@ document.addEventListener("DOMContentLoaded", () => {
       submitBtn.textContent = "Engineering your quote...";
 
       try {
+        const emailAddress = "ernesto+skypro@getroute.com";
         const response = await fetch(
-          "https://formsubmit.co/ajax/ernesto+skypro@getroute.com",
+          `https://formsubmit.co/ajax/${encodeURIComponent(emailAddress)}`,
           {
             method: "POST",
             headers: {
@@ -148,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="form-success animate-fadeIn" style="text-align: center; padding: 2rem 0;">
                         <div style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
                         <h3 style="color: white; margin-bottom: 1rem;">Inquiry Received!</h3>
-                        <p style="color: rgba(255,255,255,0.8);">Thank you, ${data.first_name}. Your project details have been sent to the engineering team. We will reach out to you via ${data.email} shortly.</p>
+                        <p style="color: rgba(255,255,255,0.8);">Thank you, ${data.first_name}. Your project details have been transmitted. <strong>Important:</strong> Check your inbox at ${data.email} for results.</p>
                         <button onclick="location.reload()" class="btn btn-white" style="margin-top: 2rem; color: var(--color-primary);">Send Another</button>
                     </div>
                 `;
@@ -159,16 +160,19 @@ document.addEventListener("DOMContentLoaded", () => {
           submitBtn.disabled = false;
         }
       } catch (error) {
-        console.error("Network Error:", error);
+        console.error("Detailed Network Error:", error);
 
-        // Handle the common file:// protocol restriction
         if (window.location.protocol === "file:") {
           alert(
-            "Security Restriction: Browsers block form submissions when opening HTML files directly (file://). Please run this via a local server (like Live Server) or upload it to a host.",
+            "SECURITY BLOCK: You are opening this as a local file (file://). Browsers block form submissions this way. Please test on the live GitHub URL.",
           );
-          submitBtn.textContent = "Local File Error";
+          submitBtn.textContent = "Protocol Error";
         } else {
-          submitBtn.textContent = "Network Error. Check connection.";
+          // Check for common blockers (Adblock/VPN/CORS)
+          alert(
+            `SUBMISSION FAILED.\nMessage: ${error.message}\n\nThis is usually caused by an Adblocker or VPN blocking the submission service. Try disabling them or using Incognito.`,
+          );
+          submitBtn.textContent = "Error: Check Console";
         }
         submitBtn.disabled = false;
       }
