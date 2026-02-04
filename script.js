@@ -272,11 +272,20 @@ function initAutocomplete() {
 
   if (!cityInput) return;
 
+  // Best practices: restricted to cities, and fetch ONLY necessary fields for performance/cost
   const options = {
     types: ["(cities)"],
+    fields: ["address_components", "name"],
   };
 
   const autocomplete = new google.maps.places.Autocomplete(cityInput, options);
+
+  // Prevent form submission when pressing Enter in the autocomplete dropdown
+  google.maps.event.addDomListener(cityInput, "keydown", function (e) {
+    if (e.keyCode === 13 && document.querySelector(".pac-container")) {
+      e.preventDefault();
+    }
+  });
 
   autocomplete.addListener("place_changed", function () {
     const place = autocomplete.getPlace();
@@ -291,18 +300,24 @@ function initAutocomplete() {
     }
 
     if (countryName && countrySelect) {
-      // Find the option that matches the country name
+      // Intelligent Selection: Match by value OR text
       let found = false;
+      const lowerCountry = countryName.toLowerCase();
+
       for (let i = 0; i < countrySelect.options.length; i++) {
-        if (countrySelect.options[i].value === countryName) {
+        const optionValue = countrySelect.options[i].value.toLowerCase();
+        const optionText = countrySelect.options[i].text.toLowerCase();
+
+        if (optionValue === lowerCountry || optionText === lowerCountry) {
           countrySelect.selectedIndex = i;
           found = true;
           break;
         }
       }
-      // Fallback: If not found in the list, set to 'Other' or keep as is
+
       if (!found) {
-        countrySelect.value = "Other";
+        // Log for developer context, but keep UX clean
+        console.warn(`Country mapping not found for: ${countryName}`);
       }
     }
   });
