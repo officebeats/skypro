@@ -430,8 +430,8 @@ h3 {
     15,
     23,
     42,
-    0.225
-  ); /* 50% more transparent than previous 0.45 */
+    0.3
+  ); /* 35% less transparent than previous 0.225 */
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   padding: 3.5rem;
@@ -915,8 +915,28 @@ h3 {
 }
 
 .product-title {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  color: var(--color-gray-900);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.product-tagline {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.25rem;
+  display: block;
+}
+
+.product-description {
+  color: var(--color-gray-700);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
 }
 
 .product-badge {
@@ -932,11 +952,28 @@ h3 {
   z-index: 5;
 }
 
+.product-features {
+  list-style: none;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.product-features li {
+  position: relative;
+  padding-left: 1.5rem;
+  color: var(--color-gray-800);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
 .product-features li::before {
   content: "•";
   color: var(--color-primary);
   position: absolute;
   left: 0;
+  font-weight: 900;
 }
 
 .product-actions {
@@ -998,7 +1035,20 @@ h3 {
   }
   .product-card.featured .product-content {
     width: 50%;
-    padding: 3rem;
+    padding: 4rem; /* Increased breathing room */
+  }
+
+  .product-card.featured .product-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+
+  .product-card.featured .product-description {
+    font-size: 1.25rem;
+    max-width: 600px;
+  }
+
+  .product-card.featured .product-features li {
+    font-size: 1.125rem;
   }
 }
 
