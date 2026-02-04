@@ -795,6 +795,29 @@ h3 {
   margin-top: 2px;
 }
 
+.solution-icon-new {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-light) 0%,
+    var(--color-primary) 100%
+  );
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  margin-bottom: 2rem;
+  box-shadow: 0 12px 30px -10px rgba(0, 102, 255, 0.6);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.solution-card:hover .solution-icon-new {
+  transform: scale(1.1) rotate(5deg);
+}
+
 /* ===== Products - Modern Cards ===== */
 .products-section {
   padding: 3rem 0;
