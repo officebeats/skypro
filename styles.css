@@ -430,8 +430,8 @@ h3 {
     15,
     23,
     42,
-    0.3
-  ); /* 35% less transparent than previous 0.225 */
+    0.375
+  ); /* Another 25% darker than previous 0.3 */
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   padding: 3.5rem;
