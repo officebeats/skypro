@@ -409,32 +409,31 @@ h3 {
   position: relative;
   z-index: 10;
   display: grid;
-  gap: 4rem;
+  gap: 3rem;
   align-items: center;
+  max-width: 1400px; /* Enhanced wide symmetry */
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 @media (min-width: 1024px) {
   .hero-content {
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 5rem;
+    grid-template-columns: 1fr 1fr; /* Symmetrical 50/50 split */
+    gap: 4rem;
+    align-items: center;
   }
 }
 
 .hero-text {
   color: var(--color-white);
-  background: rgba(
-    15,
-    23,
-    42,
-    0.45
-  ); /* Increased opacity for elite readability */
+  background: rgba(15, 23, 42, 0.45);
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
-  padding: 3.5rem; /* Expanded for balanced internal symmetry */
+  padding: 3.5rem;
   border-radius: var(--radius-2xl);
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.6);
-  max-width: 680px;
+  width: 100%;
 }
 
 .hero-badge {
