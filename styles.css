@@ -1231,8 +1231,8 @@ h3 {
 @media (min-width: 768px) {
   .gallery-grid {
     grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: minmax(180px, auto);
-    gap: 2rem;
+    grid-auto-rows: 240px;
+    gap: 1.5rem;
   }
 }
 
@@ -1255,27 +1255,29 @@ h3 {
   transform: scale(1.08); /* Cinematic zoom */
 }
 
-.gallery-item.large {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-
 @media (min-width: 768px) {
+  /* Left Main Block - NYC */
   .gallery-item:nth-child(1) {
-    grid-column: span 7;
-    grid-row: span 3;
-  } /* Large Hero Image */
+    grid-column: span 8;
+    grid-row: span 2;
+  }
+
+  /* Top Right - Ghana */
   .gallery-item:nth-child(2) {
-    grid-column: span 5;
-    grid-row: span 2;
-  }
-  .gallery-item:nth-child(3) {
-    grid-column: span 5;
-    grid-row: span 2;
-  }
-  .gallery-item:nth-child(4) {
-    grid-column: span 7;
+    grid-column: span 4;
     grid-row: span 1;
+  }
+
+  /* Middle Right - London */
+  .gallery-item:nth-child(3) {
+    grid-column: span 4;
+    grid-row: span 1;
+  }
+
+  /* Bottom Anchor - Commercial Project */
+  .gallery-item:nth-child(4) {
+    grid-column: span 12;
+    grid-row: span 1.5;
   }
 }
 
