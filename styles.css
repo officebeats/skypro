@@ -838,6 +838,13 @@ h3 {
   line-height: 0; /* Remove gap below image */
 }
 
+.product-inline-animation {
+  margin-bottom: 3rem;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
 .full-width-video {
   width: 100%;
   height: auto;
