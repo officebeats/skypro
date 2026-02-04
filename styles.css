@@ -394,7 +394,7 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.9; /* Dramatically increased visibility */
+  opacity: 0.45; /* 50% darkened final state from 0.9 */
 }
 
 .hero-gradient {
