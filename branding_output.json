@@ -1,0 +1,37 @@
+{
+  "success": true,
+  "url": "https://www.skypro.com",
+  "domain": "www.skypro.com",
+  "company_name": "Sky Pro",
+  "branding": {
+    "colors": {
+      "primary": "",
+      "secondary": "",
+      "accent": "",
+      "background": "",
+      "text": ""
+    },
+    "typography": {
+      "headings": "",
+      "body": ""
+    }
+  },
+  "extract": {
+    "logo_url": "https://static.wixstatic.com/media/57049a_0a6c937690c6482aa534b9a2d5175d91~mv2.jpg/v1/fill/w_179,h_104,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Sky%20Pro%20Logo%20lo%20res%20(1)%20copy.jpg",
+    "favicon_url": "https://static.wixstatic.com/media/cf408c_bdaad8f0f1aa4631b93f5ef4038c13e9%7Emv2.jpg/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/cf408c_bdaad8f0f1aa4631b93f5ef4038c13e9%7Emv2.jpg",
+    "hero_image_url": "https://static.wixstatic.com/media/57049a_4bc483e310594bc2a7cecc5912943ab2~mv2.jpg/v1/fill/w_1904,h_992,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/57049a_4bc483e310594bc2a7cecc5912943ab2~mv2.jpg",
+    "button_styles": {
+      "border_radius": "",
+      "style": "",
+      "primary_color": ""
+    },
+    "design_style": "corporate",
+    "design_notes": "The design features a clean and professional aesthetic, focusing on automation and safety in window cleaning."
+  },
+  "local_assets": {
+    "logo": "brand_assets\\www.skypro.com\\logo.jpg",
+    "favicon": "brand_assets\\www.skypro.com\\favicon.jpg",
+    "hero": "brand_assets\\www.skypro.com\\hero.jpg"
+  },
+  "assets_directory": "brand_assets\\www.skypro.com"
+}

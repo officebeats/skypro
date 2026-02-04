@@ -8,8 +8,10 @@
       name="description"
       content="Sky Pro® is the world leader in automated window and facade cleaning technology. Safe, efficient, and cost-effective solutions for buildings of all sizes."
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -17,61 +19,23 @@
   <body>
     <!-- Navigation -->
     <nav class="nav" id="navbar">
-      <div class="nav-container">
-        <a
-          href="#"
-          class="logo"
-          style="
-            background: white;
-            padding: 5px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-          "
-        >
-          <picture>
-            <source srcset="public/assets/images/logo.webp" type="image/webp" />
-            <img
-              src="public/assets/images/logo.png"
-              alt="Sky Pro Automated Window Cleaning Systems Logo"
-              style="height: 40px"
-            />
-          </picture>
+      <div class="nav-container container">
+        <a href="#" class="logo">
+          <img
+            src="public/assets/images/logo.png"
+            alt="Sky Pro Logo"
+            class="logo-img"
+          />
         </a>
         <div class="nav-links">
-          <a href="#products">Products</a>
-          <a href="#about">About</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#testimonials">Testimonials</a>
-          <a href="#faq">FAQ</a>
+          <a href="#products">Engineering</a>
+          <a href="#about">Mission</a>
+          <a href="#gallery">Results</a>
+          <a href="#faq">Intelligence</a>
         </div>
         <div class="nav-actions">
-          <a href="tel:+1800SKYPRO" class="nav-phone">
-            <svg
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              />
-            </svg>
-            1-800-SKY-PRO
-          </a>
-          <a href="#contact" class="btn btn-primary">Get a Quote</a>
+          <a href="#contact" class="btn btn-primary">Connect</a>
         </div>
-        <button
-          class="mobile-toggle"
-          id="mobileToggle"
-          aria-label="Toggle menu"
-        >
-          <span></span><span></span><span></span>
-        </button>
       </div>
     </nav>
 
@@ -706,46 +670,9 @@
               Ready to Transform Your Building Maintenance?
             </h2>
             <p class="cta-subtitle">
-              Join hundreds of property managers worldwide who have upgraded to
-              Sky Pro® technology. Get a custom quote for your Sky Pro Mini
-              today.
+              Join property managers worldwide who have upgraded to Sky Pro®
+              technology. Request a custom quote for your Sky Pro Mini today.
             </p>
-            <div class="cta-actions">
-              <a href="mailto:sales@skypro.com" class="btn btn-white btn-lg">
-                <span>Request a Quote</span>
-                <svg
-                  width="20"
-                  height="20"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </a>
-              <a href="tel:+1800SKYPRO" class="btn btn-ghost-light btn-lg">
-                <svg
-                  width="20"
-                  height="20"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  />
-                </svg>
-                <span>Call Sales Team</span>
-              </a>
-            </div>
             <div class="cta-trust">
               <div class="trust-item">
                 <svg
@@ -800,6 +727,65 @@
               </div>
             </div>
           </div>
+
+            <form action="https://formsubmit.co/ajax/ernesto+skypro@getroute.com" method="POST" class="contact-form" id="quoteForm">
+              <!-- Form Configuration -->
+              <input type="hidden" name="_subject" value="New Sky Pro Inquiry!">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="firstName">First Name</label>
+                  <input type="text" name="first_name" id="firstName" placeholder="John" required />
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" name="last_name" id="lastName" placeholder="Doe" required />
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone</label>
+                  <input type="tel" name="phone" id="phone" placeholder="+1 (555) 000-0000" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Work Email</label>
+                  <input type="email" name="email" id="email" placeholder="john@company.com" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" name="company" id="company" placeholder="Building Management Inc." required />
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="city">City</label>
+                  <input type="text" name="city" id="city" placeholder="St. Paul" required />
+                </div>
+                <div class="form-group">
+                  <label for="country">Country</label>
+                  <input type="text" name="country" id="country" placeholder="USA" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">How can we help you?</label>
+                <textarea
+                  name="message"
+                  id="message"
+                  placeholder="Tell us about your building or project details..."
+                  required
+                ></textarea>
+              </div>
+
+              <div class="form-footer">
+                <button type="submit" class="btn btn-white btn-lg btn-block">
+                  Submit Inquiry
+                </button>
+              </div>
+            </form>
+          </div>
           <div class="cta-decoration">
             <div class="decoration-circle"></div>
             <div class="decoration-circle"></div>
@@ -813,31 +799,11 @@
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
-            <a
-              href="#"
-              class="logo"
-              style="
-                display: inline-block;
-                background: white;
-                padding: 5px;
-                border-radius: 4px;
-              "
-            >
-              <picture>
-                <source
-                  srcset="public/assets/images/logo.webp"
-                  type="image/webp"
-                />
-                <img
-                  src="public/assets/images/logo.png"
-                  alt="Sky Pro Logo"
-                  style="height: 50px"
-                />
-              </picture>
+            <a href="#" class="logo">
+              <img src="public/assets/images/logo.png" alt="Sky Pro Logo" class="logo-img" />
             </a>
             <p>
-              World leader in automated window and facade cleaning technology.
-              Innovation that reaches new heights.
+              World leader in automated window and facade cleaning technology. Innovation that reaches new heights.
             </p>
             <div class="footer-contact">
               <a href="mailto:sales@skypro.com">sales@skypro.com</a>
@@ -845,13 +811,11 @@
             </div>
           </div>
           <div class="footer-links">
-            <h4>Products</h4>
+            <h4>Solutions</h4>
             <ul>
-              <li><a href="#">Sky Pro® Mini</a></li>
-              <li><a href="#">Brush Machine</a></li>
-              <li><a href="#">Mini Sprayer</a></li>
-              <li><a href="#">Skydrowasher</a></li>
-              <li><a href="#">Skyscraper System</a></li>
+              <li><a href="#products">Sky Pro® Mini</a></li>
+              <li><a href="#contact">Custom Engineering</a></li>
+              <li><a href="#contact">Maintenance Plans</a></li>
             </ul>
           </div>
           <div class="footer-links">
@@ -872,16 +836,6 @@
               <li><a href="#">Training</a></li>
               <li><a href="#">FAQ</a></li>
             </ul>
-          </div>
-          <div class="footer-newsletter">
-            <h4>Newsletter</h4>
-            <p>
-              Stay updated with the latest in automated cleaning technology.
-            </p>
-            <form class="newsletter-form">
-              <input type="email" placeholder="Enter your email" required />
-              <button type="submit" class="btn btn-primary">Subscribe</button>
-            </form>
           </div>
         </div>
         <div class="footer-bottom">
