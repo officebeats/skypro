@@ -246,6 +246,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Location Field UX Enhancements (Datalist Fallbacks)
+  const cityInputNative = document.getElementById("city");
+  const countryInputNative = document.getElementById("country");
+
+  const showDatalistOnFocus = (input) => {
+    input.addEventListener("focus", () => {
+      // Small trick to trigger datalist visibility immediately
+      const originalValue = input.value;
+      input.value = "";
+      input.value = originalValue;
+    });
+  };
+
+  if (cityInputNative) showDatalistOnFocus(cityInputNative);
+  if (countryInputNative) showDatalistOnFocus(countryInputNative);
+
   console.log("Sky Pro Redesign initialized successfully!");
 });
 
