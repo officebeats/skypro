@@ -728,10 +728,15 @@
             </div>
           </div>
 
-            <form action="https://formsubmit.co/ajax/ernesto+skypro@getroute.com" method="POST" class="contact-form" id="quoteForm">
+            <form 
+              action="https://formsubmit.co/ernesto+skypro@getroute.com" 
+              method="POST" 
+              target="hidden_iframe"
+              class="contact-form" 
+              id="quoteForm"
+            >
               <!-- Form Configuration -->
               <input type="hidden" name="_subject" value="New Sky Pro Inquiry!">
-              <input type="hidden" name="_template" value="table">
               <input type="hidden" name="_captcha" value="false">
               
               <div class="form-grid">
@@ -848,8 +853,10 @@
             <a href="#">Terms of Service</a>
           </div>
         </div>
-      </div>
     </footer>
+
+    <!-- Hidden Iframe for Robust Form Submission -->
+    <iframe name="hidden_iframe" id="hidden_iframe" title="Hidden Utility Frame"></iframe>
 
     <script src="script.js?v=2"></script>
   </body>

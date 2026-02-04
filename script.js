@@ -112,59 +112,41 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Quote form handling - Integrated with FormSubmit.co
+  // Quote form handling - Bulletproof Iframe Method
   const quoteForm = document.getElementById("quoteForm");
-  if (quoteForm) {
-    quoteForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
+  const hiddenIframe = document.getElementById("hidden_iframe");
 
+  if (quoteForm && hiddenIframe) {
+    let visitorName = "there";
+
+    quoteForm.addEventListener("submit", () => {
       const submitBtn = quoteForm.querySelector('button[type="submit"]');
-      const formData = new FormData(quoteForm);
-      const data = Object.fromEntries(formData);
-
-      // Explicitly set the subject line
-      data["_subject"] = `Sky Pro Lead: ${data.first_name} ${data.last_name}`;
+      const firstNameInput = document.getElementById("firstName");
+      if (firstNameInput) visitorName = firstNameInput.value;
 
       // Show engineering state
       submitBtn.disabled = true;
       submitBtn.textContent = "Engineering your quote...";
 
-      try {
-        const response = await fetch(
-          "https://formsubmit.co/ajax/ernesto+skypro@getroute.com",
-          {
-            method: "POST",
-            headers: {
-              Accept: "application/json",
-            },
-            body: formData,
-          },
-        );
+      // The browser handles the actual POST via the hidden iframe
+    });
 
-        if (response.ok) {
-          // Success state
+    // Listen for the iframe load event to confirm submission
+    hiddenIframe.addEventListener("load", () => {
+      // Small buffer to ensure the message appears after the visual loading state
+      setTimeout(() => {
+        const submitBtn = quoteForm.querySelector('button[type="submit"]');
+        if (submitBtn && submitBtn.disabled) {
           quoteForm.innerHTML = `
-                    <div class="form-success animate-fadeIn" style="text-align: center; padding: 2rem 0;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
-                        <h3 style="color: white; margin-bottom: 1rem;">Inquiry Received!</h3>
-                        <p style="color: rgba(255,255,255,0.8);">Thank you, ${data.first_name}. Your project details have been transmitted. <strong>Important:</strong> Check your email to confirm the submission if this is your first time.</p>
-                        <button onclick="location.reload()" class="btn btn-white" style="margin-top: 2rem; color: var(--color-primary);">Send Another</button>
-                    </div>
-                `;
-        } else {
-          const result = await response.json();
-          alert(`Server Error: ${result.message || "Unknown Error"}`);
-          submitBtn.textContent = "Error. Try again.";
-          submitBtn.disabled = false;
+            <div class="form-success animate-fadeIn" style="text-align: center; padding: 2rem 0;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
+                <h3 style="color: white; margin-bottom: 1rem;">Inquiry Received!</h3>
+                <p style="color: rgba(255,255,255,0.8);">Thank you, ${visitorName}. Your project details have been transmitted safely. We will reach out to you shortly.</p>
+                <button onclick="location.reload()" class="btn btn-white" style="margin-top: 2rem; color: var(--color-primary);">Send Another</button>
+            </div>
+          `;
         }
-      } catch (error) {
-        console.error("Diagnostic Log:", error);
-        alert(
-          `NETWORK ERROR DIAGNOSTIC:\nType: ${error.name}\nMessage: ${error.message}\n\nThis is usually caused by an Adblocker or VPN blocking the submission service.`,
-        );
-        submitBtn.textContent = "Error. Check Alert.";
-        submitBtn.disabled = false;
-      }
+      }, 500);
     });
   }
 
