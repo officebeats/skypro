@@ -248,3 +248,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
   console.log("Sky Pro Redesign initialized successfully!");
 });
+
+// Google Maps Places Autocomplete
+function initAutocomplete() {
+  const cityInput = document.getElementById("city");
+  const countryInput = document.getElementById("country");
+
+  if (!cityInput) return;
+
+  // Options for Autocomplete (restricted to cities and regions for cleaner UI)
+  const options = {
+    types: ["(cities)"],
+  };
+
+  const autocomplete = new google.maps.places.Autocomplete(cityInput, options);
+
+  // When the user selects an address from the dropdown
+  autocomplete.addListener("place_changed", function () {
+    const place = autocomplete.getPlace();
+
+    if (!place.address_components) return;
+
+    // Extract country from address components
+    let country = "";
+    for (const component of place.address_components) {
+      if (component.types.includes("country")) {
+        country = component.long_name;
+        break;
+      }
+    }
+
+    if (country && countryInput) {
+      countryInput.value = country;
+    }
+  });
+}

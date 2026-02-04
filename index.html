@@ -766,11 +766,22 @@
               <div class="form-grid">
                 <div class="form-group">
                   <label for="city">City</label>
-                  <input type="text" name="city" id="city" placeholder="St. Paul" required />
+                  <input type="text" name="city" id="city" placeholder="St. Paul" required autocomplete="off" />
                 </div>
                 <div class="form-group">
                   <label for="country">Country</label>
-                  <input type="text" name="country" id="country" placeholder="USA" required />
+                  <input type="text" name="country" id="country" placeholder="United States" required list="country_list" />
+                  <datalist id="country_list">
+                    <!-- Standard high-frequency countries first -->
+                    <option value="United States">
+                    <option value="Canada">
+                    <option value="United Kingdom">
+                    <option value="Australia">
+                    <option value="Germany">
+                    <option value="France">
+                    <option value="United Arab Emirates">
+                    <!-- The rest will be populated or handled by Google Maps API -->
+                  </datalist>
                 </div>
               </div>
 
@@ -880,6 +891,9 @@
     <!-- Hidden Iframe for Robust Form Submission -->
     <iframe name="hidden_iframe" id="hidden_iframe" title="Hidden Utility Frame"></iframe>
 
+    <!-- Google Maps API for Autocomplete -->
+    <!-- Note: Replace YOUR_API_KEY with an actual Google Maps API Key to enable Places Autocomplete -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initAutocomplete" async defer></script>
     <script src="script.js?v=2"></script>
   </body>
 </html>
