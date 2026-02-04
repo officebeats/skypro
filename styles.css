@@ -624,9 +624,9 @@ h3 {
 
 .trust-label {
   text-align: center;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  color: var(--color-gray-400);
+  color: var(--color-gray-600); /* Darkened for readability */
   margin-bottom: 2.5rem;
   text-transform: uppercase;
   letter-spacing: 0.25em; /* Professional tracking */
@@ -644,8 +644,8 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.3;
-  filter: grayscale(1);
+  opacity: 0.6; /* Increased default visibility */
+  filter: grayscale(1) contrast(1.2);
   transition: all 0.4s var(--ease-smooth);
 }
 
@@ -1044,19 +1044,24 @@ h3 {
   border-bottom: 1px solid var(--color-gray-200);
 }
 .faq-question {
-  padding: 1.5rem 0;
+  padding: 1.75rem 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-weight: 600;
-  font-size: 1.125rem;
+  font-size: 1.25rem; /* Increased for legibility */
   color: var(--color-gray-900);
+  text-align: left;
 }
+
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: all var(--transition-base);
-  color: var(--color-gray-600);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--color-gray-700);
+  font-size: 1.0625rem; /* Increased for legibility */
+  line-height: 1.7;
 }
 .faq-item.active .faq-answer {
   max-height: 200px;
